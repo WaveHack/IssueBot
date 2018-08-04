@@ -79,4 +79,4 @@ You can search for existing issues with:
 !searchissues repo query
 ```
 
-Same with creating an issue, repo is optional if you have a default.
+Same with creating an issue, repo is optional if you have set a default.
