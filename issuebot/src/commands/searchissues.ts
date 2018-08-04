@@ -80,7 +80,7 @@ Searches for issues on GitHub.
 
 Usage: !issue{REPOSITORY} query
 
-**Note:** For additional query filter parameters, see: <https://developer.github.com/v3/search/#parameters-3>
+**Note:** For additional query filter parameters, see: <https://help.github.com/articles/searching-issues-and-pull-requests/>
 `;
 
 const ERROR_TEMPLATE: string = `
