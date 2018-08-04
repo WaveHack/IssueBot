@@ -17,6 +17,10 @@ export class SearchissuesCommand extends Command {
 
         const query: string = this.args.join(' ');
 
+        if (!repository || !query) {
+            return;
+        }
+
         Bot.gitHub.api.search.issues({
             q: `${query} repo:${repository}`,
         }, (error, response) => this.handleResponse(error, response, query));
