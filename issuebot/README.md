@@ -33,7 +33,7 @@ Go to your project and create the configuration file.
 $ cp config.json.template config.json
 ```
 
-Edit `config.json` and insert your Discord token, GitHub token and your GitHub user/organization name.
+Edit `config.json` and insert your Discord token, GitHub token, your GitHub user/organization name and optionally a default repository (in `User/Repository` format).
 
 **Note:** The user/organization name needs to be from the same account of which you generated the personal access token for.  
 
@@ -53,6 +53,7 @@ user@system:~/IssueBot/issuebot$ npm start
 
 Loading commands...
 Mapped Function to !issue
+Mapped Function to !searchissues
 Bot ready
 ```
 
@@ -60,10 +61,22 @@ Your bot should now be online in your Discord.
 
 ## Usage
 
-To use it, type the following in Discord where the bot can read it:
+### Creating an issue
+
+To create a new issue, type the following in Discord where the bot can read it:
 
 ```
-!issue REPO "title" "body"
+!issue repo title [body]
 ```
 
-Replace REPO with the repository you have access to. A new GitHub issue should be created through the bot.
+Repo is optional if you have set your `defaultRepository` in your config file. Else replace it with the repository you have access to.
+
+### Searching for issues
+
+You can search for existing issues with:
+
+```
+!searchissues repo query
+```
+
+Same with creating an issue, repo is optional if you have a default.
