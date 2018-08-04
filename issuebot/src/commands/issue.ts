@@ -10,10 +10,11 @@ export class IssueCommand extends Command {
             return
         }
 
-        // if defaultRepo
-        // get repository from config
-        // else
-        const repository: string = this.args.shift();
+        const repository: string = (
+            config.defaultRepository
+                ? config.defaultRepository.split('/')[1]
+                : this.args.shift()
+        );
 
         const title: string = this.args.shift();
         const body: string = this.args.shift();

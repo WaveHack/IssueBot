@@ -1,6 +1,8 @@
 import Bot from '../issuebot'
 import {Command} from 'discord-harmony'
 
+const config = require('../../config.json');
+
 export class SearchissuesCommand extends Command {
 
     protected maxResults: number = 10;
@@ -10,10 +12,11 @@ export class SearchissuesCommand extends Command {
             return;
         }
 
-        // if defaultRepo
-        // get repository from config
-        // else
-        const repository: string = this.args.shift();
+        const repository: string = (
+            config.defaultRepository
+                ? config.defaultRepository
+                : this.args.shift()
+        );
 
         const query: string = this.args.join(' ');
 
