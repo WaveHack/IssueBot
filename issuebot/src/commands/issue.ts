@@ -6,7 +6,12 @@ const config = require('../../config.json');
 export class IssueCommand extends Command {
 
     execute(): void {
-        if (!this.args) {
+        if (!this.args.length) {
+            const reply: string = USAGE_TEMPLATE
+                .replace('{REPOSITORY}', (config.defaultRepository ? '' : ' repository'));
+
+            this.message.reply(reply);
+
             return
         }
 
@@ -23,7 +28,7 @@ export class IssueCommand extends Command {
             return;
         }
 
-        let issueBody = ISSUE_TEMPLATE
+        const issueBody: string = ISSUE_TEMPLATE
             .replace("{ISSUE_BODY}", (body || '_No content_'))
             .replace("{CHANNEL}", this.message.channel.name)
             .replace("{USER}", this.message.author.username);
@@ -38,7 +43,7 @@ export class IssueCommand extends Command {
 
     handleGithubResponse(error, response) {
         if (error) {
-            const reply = ERROR_TEMPLATE
+            const reply: string = ERROR_TEMPLATE
                 .replace('{CODE}', error.code.toString())
                 .replace('{STATUS}', error.status)
                 .replace('{MESSAGE}', JSON.stringify(JSON.parse(error.message), null, 2));
@@ -48,7 +53,7 @@ export class IssueCommand extends Command {
             return;
         }
 
-        const reply = SUCCESS_TEMPLATE
+        const reply: string = SUCCESS_TEMPLATE
             .replace('{URL}', response.html_url);
 
         this.message.reply(reply)
@@ -56,14 +61,20 @@ export class IssueCommand extends Command {
 
 }
 
-const ISSUE_TEMPLATE = `
+const USAGE_TEMPLATE: string = `
+Creates a new issue on GitHub.
+
+Usage: !issue{REPOSITORY} title [body] 
+`;
+
+const ISSUE_TEMPLATE: string = `
 {ISSUE_BODY}
 
 ---
 Beep, boop, I'm [a bot](https://github.com/LeagueSandbox/IssueBot)! This issue was created by \`@{USER}\` in \`#{CHANNEL}\`.
 `;
 
-const ERROR_TEMPLATE = `
+const ERROR_TEMPLATE: string = `
 An error has occurred while creating the issue: **{CODE}: {STATUS}**.
 
 Message:
@@ -72,6 +83,6 @@ Message:
 \`\`\`
 `;
 
-const SUCCESS_TEMPLATE = `
+const SUCCESS_TEMPLATE: string = `
 Issue created successfully! {URL}
 `;

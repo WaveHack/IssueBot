@@ -8,8 +8,13 @@ export class SearchissuesCommand extends Command {
     protected maxResults: number = 10;
 
     execute(): void {
-        if (!this.args) {
-            return;
+        if (!this.args.length) {
+            const reply: string = USAGE_TEMPLATE
+                .replace('{REPOSITORY}', (config.defaultRepository ? '' : ' repository'));
+
+            this.message.reply(reply);
+
+            return
         }
 
         const repository: string = (
@@ -69,6 +74,14 @@ export class SearchissuesCommand extends Command {
     }
 
 }
+
+const USAGE_TEMPLATE: string = `
+Searches for issues on GitHub.
+
+Usage: !issue{REPOSITORY} query
+
+**Note:** For additional query filter parameters, see: <https://developer.github.com/v3/search/#parameters-3>
+`;
 
 const ERROR_TEMPLATE: string = `
 An error has occurred: **{CODE}: {STATUS}**.
