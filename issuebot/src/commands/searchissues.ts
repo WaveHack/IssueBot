@@ -8,6 +8,24 @@ export class SearchissuesCommand extends Command {
     protected maxResults: number = 10;
 
     execute(): void {
+        if (config.allowedRoles.length > 0) {
+            // Server owner can always use this command
+            if (this.message.author.id !== this.message.member.guild.ownerID) {
+                let hasRole: boolean = false;
+
+                this.message.member.roles.forEach(role => {
+                    if (config.allowedRoles.includes(role.id)) {
+                        hasRole = true;
+                        return false; //break
+                    }
+                });
+
+                if (!hasRole) {
+                    return;
+                }
+            }
+        }
+
         if (!this.args.length) {
             const reply: string = USAGE_TEMPLATE
                 .replace('{REPOSITORY}', (config.defaultRepository ? '' : ' repository'));

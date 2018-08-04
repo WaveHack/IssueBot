@@ -33,7 +33,11 @@ Go to your project and create the configuration file.
 $ cp config.json.template config.json
 ```
 
-Edit `config.json` and insert your Discord token, GitHub token, your GitHub user/organization name and optionally a default repository (in `User/Repository` format).
+Edit `config.json` and insert your Discord token, GitHub token and your GitHub user/organization. These three fields are mandatory.
+
+Set default repository to either an empty string or a repository (in `user/repository` format). A default repository is useful if you have only one repo to manage issues for through Discord. Otherwise you need to leave the default repository config field blank, and add the repository name to every command invocation.
+
+Roles is an array of Discord role string ids (tip: use `\@rolename` in Discord to get the id), where only users of those roles are allowed to invoke the bot. Everyone can use the bot if this array remains empty. The server owner can always invoke the bot regardless.
 
 **Note:** The user/organization name needs to be from the same account of which you generated the personal access token for.  
 

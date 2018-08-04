@@ -2,5 +2,6 @@
   "discordToken": "<insert discord token here>",
   "githubToken": "<insert github token here>",
   "name": "<insert github name here>",
-  "defaultRepository" "<default user/repository or empty string>"
+  "defaultRepository" "<default user/repository or empty string>",
+  "allowedRoles": []
 }
