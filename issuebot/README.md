@@ -1,6 +1,6 @@
 # IssueBot
 
-A Discord bot for creating GitHub issues.
+A Discord bot for creating and searching GitHub issues.
 
 ## Install Instructions
 
