@@ -80,7 +80,9 @@ Repo is optional if you have set your `defaultRepository` in your config file. E
 You can search for existing issues with:
 
 ```
-!searchissues repo query
+!searchissues user/repo query
 ```
 
-Same with creating an issue, repo is optional if you have set a default.
+Note the user/repo parameter here. Unlike with creating an issue, you need to provide the full repository path.
+
+Same with creating an issue, user/repo is optional if you have set a default repository.
