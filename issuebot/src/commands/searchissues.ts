@@ -115,7 +115,7 @@ No results for \`{QUERY}\`.
 `;
 
 const SUCCESS_TEMPLATE: string = `
-{NUM_RESULTS} {ISSUE_OR_ISSUES} found matching the term \`{QUERY}\`.{SHOWING_N_RESULTS}
+{NUM_RESULTS} {ISSUE_OR_ISSUES} found matching the query \`{QUERY}\`.{SHOWING_N_RESULTS}
 
 {RESULT_DATA}
 `;
