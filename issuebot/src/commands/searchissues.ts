@@ -32,7 +32,7 @@ export class SearchissuesCommand extends Command {
 
             this.message.reply(reply);
 
-            return
+            return;
         }
 
         const repository: string = (
