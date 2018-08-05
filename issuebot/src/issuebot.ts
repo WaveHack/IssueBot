@@ -10,7 +10,7 @@ export class IssueBot extends Harmony.Bot {
 
     constructor() {
         super();
-        this.gitHub = new GitHub(config.githubToken)
+        this.gitHub = new GitHub(config.githubToken);
     }
 
     loadCommands() {
