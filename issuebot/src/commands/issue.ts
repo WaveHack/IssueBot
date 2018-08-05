@@ -30,7 +30,7 @@ export class IssueCommand extends Command {
 
             this.message.reply(reply);
 
-            return
+            return;
         }
 
         const repository: string = (
