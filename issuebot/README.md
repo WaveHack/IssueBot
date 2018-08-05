@@ -70,7 +70,7 @@ Your bot should now be online in your Discord.
 To create a new issue, type the following in Discord where the bot can read it:
 
 ```
-!issue repo title [body]
+!issue [repo] title [body]
 ```
 
 Repo is optional if you have set your `defaultRepository` in your config file. Else replace it with the repository you have access to.
@@ -80,7 +80,7 @@ Repo is optional if you have set your `defaultRepository` in your config file. E
 You can search for existing issues with:
 
 ```
-!searchissues user/repo query
+!searchissues [user/repo] query
 ```
 
 Note the user/repo parameter here. Unlike with creating an issue, you need to provide the full repository path.
