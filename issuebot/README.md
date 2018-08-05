@@ -83,6 +83,6 @@ You can search for existing issues with:
 !searchissues [user/repo] query
 ```
 
-Note the user/repo parameter here. Unlike with creating an issue, you need to provide the full repository path.
+Note the user/repo parameter here. Unlike with creating an issue, you need to provide the full repository path due to how the Discord search API works.
 
 Same with creating an issue, user/repo is optional if you have set a default repository.
