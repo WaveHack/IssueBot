@@ -1,16 +1,15 @@
-import * as Harmony from 'discord-harmony'
-import {GitHub} from './github'
-import {IssueCommand, SearchissuesCommand} from './commands'
+import * as Harmony from 'discord-harmony';
+import {GitHub} from './github';
+import {IssueCommand, SearchissuesCommand} from './commands';
 
 const config = require('../config.json');
 
 export class IssueBot extends Harmony.Bot {
 
-    gitHub: GitHub;
+    public gitHub: GitHub;
 
     constructor() {
         super();
-
         this.gitHub = new GitHub(config.githubToken)
     }
 

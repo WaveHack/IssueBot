@@ -2,7 +2,7 @@ import GitHubApi = require('github');
 
 export class GitHub {
 
-    api: GitHubApi;
+    public api: GitHubApi;
 
     constructor(token: string) {
         this.api = new GitHubApi();
